@@ -1,4 +1,5 @@
 var counter = 1
+document.addEventListener("DOMContentLoaded", async () => {
 function createDivision(important) {
     const texta = document.getElementById('textArea').value.replace(/\n/g, '<br>');
     if (!texta) return alert("Veuillez fournir une valeur valide pour l'article")
@@ -58,3 +59,4 @@ function défaire(event) {
     }
     button.setAttribute('onclick', 'fait(event)')
 }
+})
