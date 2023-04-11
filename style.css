@@ -37,7 +37,7 @@ body {
     margin: 0 auto;
     justify-content: center;
     height: 80px;
-    width: 500px;
+    width: 350px;
 }
 p {
     font-family: 'Montserrat';
@@ -84,5 +84,5 @@ div {
 footer {
     font-family:'Montserrat';
     text-align: center;
-    margin-top: 50px; /* ajustez cette valeur selon vos besoins */
+    margin-top: 50px;
 }
