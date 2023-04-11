@@ -11,7 +11,11 @@
     --important: #9400D3;
     --mygreen: #79b15a
 }
-
+body {
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
 .important {
     background-color: var(--important);
 }
@@ -26,18 +30,23 @@ h2 {
 body {
     background-color: pink;
 }
-textarea {
-    resize: none;
-    height: 80px;
-    width: 327px;
-    display: block;
-    margin: 0 auto;      
-}
-#buttons-containera {
+#contains {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: pink;
+  }
+textarea {
+    resize: none;
+    margin: 0 auto;
+    height: 80px;
+    width: 327px;   
+}
+#buttons-containera {
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
 #container {
@@ -61,6 +70,7 @@ div {
 }
 
 footer {
+    font-family:'Montserrat';
     text-align: center;
-    font-family:'Montserrat'
+    margin-top: 50px;
 }
