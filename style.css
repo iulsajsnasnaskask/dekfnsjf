@@ -37,6 +37,7 @@ body {
     margin: 0 auto;
     justify-content: center;
     height: 80px;
+    border-radius: 50px;
     width: 350px;
 }
 p {
@@ -64,8 +65,25 @@ textarea {
 #container {
     background-color: pink;
 }
+#container h2 {
+    margin-left: 5px;
+}
+#container button {
+    margin-left: 5px;
+}
+#container button+button {
+    margin: 0;
+}
 div {
     background-color: var(--main);
+    display: block;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+    height: 80px;
+    border-radius: 50px;
+    width: 350px;
 }
 ::-webkit-scrollbar {
     width: 10px;
@@ -84,5 +102,6 @@ div {
 footer {
     font-family:'Montserrat';
     text-align: center;
-    margin-top: 50px;
+    position: relative;
+    margin-top: auto;
 }
