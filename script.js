@@ -29,15 +29,10 @@ function removeDivision(all) {
     } else {
         let div = document.getElementById('container');
         let body = document.querySelector('body');
-        let footer = document.querySelector('footer');
-        footer.remove();
         div.remove();
         let newdiv = document.createElement("div")
         newdiv.setAttribute('id', 'container')
         body.appendChild(newdiv)
-        let newfooter = document.createElement("footer")
-        body.appendChild(newfooter)
-        newfooter.innerHTML = 'Les courses en 2023'
     }
 }
 function fait(event) {
@@ -57,4 +52,49 @@ function défaire(event) {
         div.setAttribute('style', 'background-color: var(--main)')
     }
     button.setAttribute('onclick', 'fait(event)')
+}
+const prelist = document.getElementById('containpre')
+prelist.addEventListener("click", () => {
+    Bananes()
+    Pain()
+})
+function Bananes() {
+    counter++
+    let div = document.createElement("div");
+    let article = document.createElement("h2");
+    let deleteartc = document.createElement("button");
+    let fait = document.createElement("button");
+    article.innerHTML = 'Bananes'
+    fait.innerHTML = 'Fait'
+    deleteartc.innerHTML = 'Supprimer'
+    div.appendChild(article);
+    div.appendChild(deleteartc);
+    div.appendChild(fait);
+    document.getElementById('container').appendChild(div);
+    div.setAttribute('id', `div-${counter}`)
+    fait.setAttribute('id', `fait-${counter}`)
+    fait.setAttribute('onclick', 'fait(event)')
+    deleteartc.setAttribute('id', `deleteartc-${counter}`)
+    deleteartc.setAttribute('onclick', 'removeDivision(false)')
+    div.setAttribute('class', 'important')
+}
+function Pain() {
+    counter++
+    let div = document.createElement("div");
+    let article = document.createElement("h2");
+    let deleteartc = document.createElement("button");
+    let fait = document.createElement("button");
+    article.innerHTML = 'Pain'
+    fait.innerHTML = 'Fait'
+    deleteartc.innerHTML = 'Supprimer'
+    div.appendChild(article);
+    div.appendChild(deleteartc);
+    div.appendChild(fait);
+    document.getElementById('container').appendChild(div);
+    div.setAttribute('id', `div-${counter}`)
+    fait.setAttribute('id', `fait-${counter}`)
+    fait.setAttribute('onclick', 'fait(event)')
+    deleteartc.setAttribute('id', `deleteartc-${counter}`)
+    deleteartc.setAttribute('onclick', 'removeDivision(false)')
+    div.setAttribute('class', 'important')
 }
