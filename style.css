@@ -30,6 +30,18 @@ h2 {
 body {
     background-color: pink;
 }
+#containpre {
+    display: block;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+    height: 80px;
+    width: 500px;
+}
+p {
+    font-family: 'Montserrat';
+}
 #contains {
     display: flex;
     justify-content: center;
@@ -72,5 +84,5 @@ div {
 footer {
     font-family:'Montserrat';
     text-align: center;
-    margin-top: 50px;
+    margin-top: 50px; /* ajustez cette valeur selon vos besoins */
 }
