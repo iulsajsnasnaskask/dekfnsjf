@@ -8,20 +8,25 @@ function createDivision(important) {
     let div = document.createElement("div");
     let article = document.createElement("h2");
     let fait = document.createElement("button");
+    let btndelete = document.createElement('button');
      article.innerHTML = texta
     fait.innerHTML = 'Fait'
+    btndelete.innerHTML = 'Supprimer'
     div.appendChild(article);
+    div.appendChild(btndelete);
     div.appendChild(fait);
     document.getElementById('container').appendChild(div);
     div.setAttribute('id', texta)
     div.setAttribute('value', false)
     fait.setAttribute('id', `fait-${counter}`)
+    btndelete.setAttribute('onclick', "removeDivision(false)")
     fait.setAttribute('onclick', 'fait(event)')
     if (important == true) { div.setAttribute('class', 'important') }
     result.push({article: texta, important: important, class: div.className, fait: div.getAttribute('value')});
     saveResult();
 }
-function removeDivisionAll() {
+function removeDivision(all) {
+        if (all == true) {
         let div = document.getElementById('container');
         let body = document.querySelector('body');
         div.remove();
@@ -30,6 +35,12 @@ function removeDivisionAll() {
         body.appendChild(newdiv)
         localStorage.removeItem('list')
         location.reload();
+        } else {
+            let button = event.target;
+            let div = button.parentNode;
+            div.remove();
+            removeLocalTodos(div)
+        }
     }
 function fait(event) {
     let button = event.target;
@@ -66,9 +77,12 @@ function tisane() {
     let div = document.createElement("div");
     let article = document.createElement("h2");
     let fait = document.createElement("button");
+    let btndelete = document.createElement('button')
     article.innerHTML = 'Tisane'
+    btndelete.innerHTML = 'Supprimer'
     fait.innerHTML = 'Fait'
     div.appendChild(article);
+    div.appendChild(btndelete)
     div.appendChild(fait);
     document.getElementById('container').appendChild(div);
     div.setAttribute('id', `div-${counter}`)
@@ -84,9 +98,12 @@ function riz_complet() {
     let div = document.createElement("div");
     let article = document.createElement("h2");
     let fait = document.createElement("button");
+    let btndelete = document.createElement('button')
     article.innerHTML = 'Riz complet'
+    btndelete.innerHTML = 'Supprimer'
     fait.innerHTML = 'Fait'
     div.appendChild(article);
+    div.appendChild(btndelete)
     div.appendChild(fait);
     document.getElementById('container').appendChild(div);
     div.setAttribute('id', `div-${counter}`)
@@ -102,9 +119,12 @@ function Bananes() {
     let div = document.createElement("div");
     let article = document.createElement("h2");
     let fait = document.createElement("button");
+    let btndelete = document.createElement('button')
     article.innerHTML = 'Bananes'
+    btndelete.innerHTML = 'Supprimer'
     fait.innerHTML = 'Fait'
     div.appendChild(article);
+    div.appendChild(btndelete)
     div.appendChild(fait);
     document.getElementById('container').appendChild(div);
     div.setAttribute('id', `div-${counter}`)
@@ -120,9 +140,12 @@ function Pain() {
     let div = document.createElement("div");
     let article = document.createElement("h2");
     let fait = document.createElement("button");
+    let btndelete = document.createElement('button')
     article.innerHTML = 'Pain'
+    btndelete.innerHTML = 'Supprimer'
     fait.innerHTML = 'Fait'
     div.appendChild(article);
+    div.appendChild(btndelete)
     div.appendChild(fait);
     document.getElementById('container').appendChild(div);
     div.setAttribute('id', `div-${counter}`)
@@ -137,7 +160,6 @@ function saveResult() {
     let json = JSON.stringify(result);
     localStorage.setItem("list", json);
 }
-// chargement des données
 chargeResult(container);
 
 function chargeResult(container) {
@@ -148,28 +170,38 @@ function chargeResult(container) {
     let res = JSON.parse(json);
     if(res) {
         for(const item of res) {
-            // création et ajout d'élément à une nouvelle division.
             let div = document.createElement("div");
             let article = document.createElement("h2");
             let btnfait = document.createElement("button")
+            let btndelete = document.createElement('button')
             article.innerHTML = item.article
             btnfait.innerHTML = 'Fait'
+            btndelete.innerHTML = 'Supprimer'
 
-            // ajout des éléments à la division créée.
             div.appendChild(article);
+            div.appendChild(btndelete)
             div.appendChild(btnfait);
 
-            // Setup des informations des éléments
             div.setAttribute('id', `div-${counter}`)
             btnfait.setAttribute('id', `fait-${counter}`)
             btnfait.setAttribute('onclick', 'fait(event)')
             if (item.important == true) { div.setAttribute('class', 'important') }
             if (item.fait == true) { div.setAttribute('style', 'background-color: var(--mygreen)') }
 
-            // ajout de la division créée à la division "se".
             container.appendChild(div);
 
             result.push(item);
         }
     }
 }
+function removeLocalTodos(lis) {
+    let list;
+    if (localStorage.getItem("list") === null) {
+        list = [];
+    } else {
+        list = JSON.parse(localStorage.getItem("list"));
+    }
+    const listIndex = lis.children[0].innerText;
+    list.splice(list.indexOf(listIndex), 1);
+    localStorage.setItem("list", JSON.stringify(list));
+  }
