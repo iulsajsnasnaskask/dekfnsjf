@@ -40,6 +40,17 @@ body {
     border-radius: 50px;
     width: 350px;
 }
+#containbio {
+    display: block;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+    height: 90px;
+    border-radius: 50px;
+    width: 360px;
+    background-color: #5fbb47;
+}
 p {
     font-family: 'Montserrat';
 }
