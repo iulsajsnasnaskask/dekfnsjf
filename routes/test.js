@@ -6,7 +6,7 @@ module.exports = {
         $send[400;json;{
             "error": "Invalid hex color code provided"
         }]
-        $break $ignore[Now we're breaking it to stop executing the left code]
+        $break $ignore[test res]
     ]
 
     $createCanvas[512;512]
