@@ -5,4 +5,4 @@
             loader.style.display = 'none'
             container.style.display = "flex";
             body.setAttribute('class', 'afterload')
-      }, 500)
+      }, 1000)
