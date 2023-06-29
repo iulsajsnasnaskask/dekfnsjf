@@ -17,4 +17,7 @@
     .bigcont {
         grid-template-columns: repeat(1, 1fr);
     }
+    .pseudo, .github {
+        position: relative;
+    }
 }
